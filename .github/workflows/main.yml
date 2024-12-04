@@ -55,9 +55,11 @@ jobs: # 수행할 내용.
 
     - name: k8s manifest update
       run: |
+        cd backend
         sed -i "s@ \
         image: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_BACK_REPOSITORY }}:.*@ \
         image: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_BACK_REPOSITORY }}:${{ env.IMAGE_TAG }}@g" deployment.yml
+        cd frontend
         sed -i "s@ \
         image: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_FRONT_REPOSITORY }}:.*@ \
         image: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_FRONT_REPOSITORY }}:${{ env.IMAGE_TAG }}@g" deployment.yml
