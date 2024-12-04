@@ -55,6 +55,7 @@ jobs: # 수행할 내용.
 
     - name: k8s manifest update
       run: |
+        ls -al
         cd backend
         sed -i "s@ \
         image: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_BACK_REPOSITORY }}:.*@ \
