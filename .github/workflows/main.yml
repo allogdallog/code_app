@@ -29,12 +29,13 @@ jobs: # 수행할 내용.
     - name: Set Variables
       id: set-var
       run: |
-        echo "DOCKER_REGISTRY=allogdallog" >> $GITHUB_ENV
-        echo "DOCKER_FRONT_REPOSITORY=front" >> $GITHUB_ENV #본인 ecr레포에 맞게 수정
+	echo "DOCKER_REGISTRY=allogdallog" >> $GITHUB_ENV
+	echo "DOCKER_FRONT_REPOSITORY=front" >> $GITHUB_ENV
 	echo "DOCKER_BACK_REPOSITORY=back" >> $GITHUB_ENV
-        echo "IMAGE_TAG=${{ github.run_number }}" >> $GITHUB_ENV
-        echo "GIT_EMAIL=allogdallog@gmail.com" >> $GITHUB_ENV
-        echo "GIT_NAME=allogdallog" >> $GITHUB_ENV
+	echo "IMAGE_TAG=${{ github.run_number }}" >> $GITHUB_ENV
+	echo "GIT_EMAIL=allogdallog@gmail.com" >> $GITHUB_ENV
+	echo "GIT_NAME=allogdallog" >> $GITHUB_ENV
+
 
     - name: Docker Image Build
       id: build-image
