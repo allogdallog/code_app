@@ -64,11 +64,12 @@ jobs: # 수행할 내용.
         sed -i "s@ \
         image: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_FRONT_REPOSITORY }}:.*@ \
         image: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_FRONT_REPOSITORY }}:${{ env.IMAGE_TAG }}@g" deployment.yml
+        cd ..
 
     - name: Commit and Push
       run: |
         git config user.email ${{ env.GIT_EMAIL }}
         git config user.name ${{ env.GIT_NAME }}
-        git add deployment.yml
+        git add .
         git commit -m "Update image tag"
         git push origin main
